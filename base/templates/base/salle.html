@@ -1,0 +1,62 @@
+{% extends "coach/base.html" %}
+
+{% load static %}
+
+
+
+{% block styles %}		
+<link rel="stylesheet" href="{% static 'base/css/salle.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+{% endblock styles %}
+
+{% block content %}
+
+<div class="containa flex justify-center items-center mx-20">
+    <div class="text-center p-8 w-500">
+
+
+<h1 class="mb-2 text-2xl font-bold text-center mx-auto my-4">
+    Découvrez notre vaste réseau de salles partenaires,
+     prêtes à accueillir nos clients souhaitant s'entraîner dans un environnement dynamique.
+      Chez nous, vous avez le choix !
+       Si vous préférez ne pas suivre nos programmes d'entraînement à domicile,
+        nos <span class="just underline decoration-sky-500 text-cyan">{{ salles|length }} salles</span>
+        partenaires offrent un espace dédié, équipé des dernières technologies
+         et encadré par des professionnels expérimentés.
+          Profitez de l'atmosphère stimulante de nos salles pour atteindre 
+          vos objectifs de remise en forme avec tout le soutien dont vous avez besoin.
+           Rejoignez-nous dès aujourd'hui et explorez une multitude 
+           d'options pour une expérience d'entraînement unique 
+  </h1>
+
+    </div>
+   </div>
+  
+   
+   {% for salle in salles %}
+   <div class="contain">
+    <div href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-6 h-96">
+        
+        <img class="image" src="{{salle.picture.url}}" alt="">
+        
+        <div class="flex flex-col items-start justify-start p-4 leading-normal w-full">
+
+            <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 underline decoration-sky-500">{{salle.name}}</h3>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{salle.description|linebreaks}}</p>
+        </div>
+    </div>
+    <div class"map">
+        <iframe width="450px" height="390px" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2313.604594838472!2d-1.334809945877561!3d34.90818115018933!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd78c95a768b7dc9%3A0x44b98a05ea1a33cf!2sOxygen%20gym!5e0!3m2!1sfr!2sfr!4v1684845752980!5m2!1sfr!2sfr"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+<hr
+class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+
+
+
+
+    {% endfor %}
+
+
+{% endblock content %}

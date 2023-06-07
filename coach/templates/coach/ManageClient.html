@@ -1,0 +1,176 @@
+{% extends "coach/base.html" %}
+
+
+
+ {% block styles %}
+
+	 
+
+{% endblock styles %}
+
+
+{% block content %}
+
+
+
+{% comment %}...
+<div class="form-group">
+ {{ form.sessions }}
+  </div>
+{% endcomment %}
+
+{% for message in messages %}
+
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<div class="sticky-top">
+
+       <div class="alert alert-success alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> {{ message }}  
+  </div>
+       </div>
+        {% endif %}
+
+
+
+
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}<div class="sticky-top">
+
+       <div class="alert alert-success alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> {{ message }}  
+  </div>
+       </div> {% endif %}
+         
+    
+{% endfor %}
+
+
+ 
+ <h1 style="text-align: center;margin-top: 20px;">Sessions assigné a {{client.name}}</h1> 
+
+{% for session in client_session %}
+
+
+
+<br>
+<br>
+
+
+<div class="container" id="{{session.name}}">
+
+  
+  <h3 id="{session.name}}"> {{session.name}} <span class="badge badge-primary">Assigned</span> </h3> 
+  
+
+
+ <form class="submit-form" method="post" id="ExerciseForm">
+  {% csrf_token %}
+ <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" >Nom de la Session</span>
+  </div>
+ <input value="{{ session.name}}" type="text" aria-label="First name" class="form-control" name="name" required>
+</div>
+
+  <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Date/Durémentaire</span>
+  </div>
+  {{form.timing}}
+  
+
+  {% if session.estimation == None %}
+  <input  type="number" class="form-control" name="estimation"  required min="0" max="90">
+
+  {% else %}
+  <input value="{{ session.estimation }}" type="nombre" class="form-control" name="estimation"  required min="0" max="90">
+
+  {% endif %}
+
+  <div class="input-group-prepend">
+    <span class="input-group-text">Minutes</span>
+  </div>
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" name="name">Details de la session</span>
+  </div>
+ <textarea value="{{ session.detail}}" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" name="detail">{{ session.detail }}</textarea>
+</div>
+
+ <input value="{{ session.id }}" type="number" class="form-control" name="id"  hidden>
+
+<button style="text-align: center;" type="submit" class="btn btn-primary triger" data-id="{{ client.id }}" data-url="{% url 'manage' name=client.name %}" >Mettre à jour</button>
+
+</form>
+
+</div>
+</br>
+<br>
+<br>
+
+{% endfor %} 
+
+{% for session in Notsession %}
+
+<div class="container">
+
+  
+  <h3 id="{session.name}}"> {{session.name}} <span class="badge badge-warning" id="bdg">Not Assigned</span> </h3> 
+  
+
+  <form class="submit-form" method="post" id="ExerciseForm">
+    {% csrf_token %}
+ <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" >Nom de la Session</span>
+  </div>
+ <input value="{{ session.name}}" type="text" aria-label="First name" class="form-control" name="name">
+</div>
+
+  <div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Date/Duration</span>
+  </div>
+  {{form.timing}}
+  {{form.estimation}}
+  <div class="input-group-prepend">
+    <span class="input-group-text">Minute</span>
+  </div>
+</div>
+
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" name="name">Details de la Session</span>
+  </div>
+ <textarea value="{{ session.detail}}" class="form-control rounded-0 area" id="exampleFormControlTextarea2" rows="3" name="detail" >{{ session.detail }}</textarea>
+
+</div>
+
+<input value="{{ session.id }}" type="number" class="form-control" name="id"  hidden>
+
+<button type="submit" class="btn btn-primary center-block triger" data-id="{{ session.id }}" data-url="{% url 'manage' name=client.name %}" >Add</button>
+
+</form>
+
+
+
+</div>
+
+{% endfor %} 
+
+
+
+
+
+{% endblock content %}
+
+
+{% block additional_js %}
+
+{% load static %}
+
+<script src="{% static 'coach/js/Sessions.js' %}"></script>
+
+{% endblock additional_js %}

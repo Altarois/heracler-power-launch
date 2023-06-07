@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+
+	<html class="no-js"> 
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Fitness</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	
+
+	{% load static %}
+
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'base/css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'base/css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
+	<!-- Superfish -->
+	<link rel="stylesheet" href="{% static 'base/css/superfish.css' %}">
+
+	<link rel="stylesheet" href="{% static 'base/css/style.css' %}">
+
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'base/js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo"><a href="">HERACLES<span> POWER</span></a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li class="active">
+									<a href="{% url 'index' %}">Acceuil</a>
+								</li>
+
+								{% if user.is_authenticated %}
+									
+								<li><a href="{% url 'dashboard' %}">DashBoard</a></li>
+								{% else %}
+								<!-- <li><a href="trainer.html">About Us</a></li> -->
+								<li><a href="{% url 'login' %}">Connection</a></li>
+								<li><a href="{% url 'signup' %}">Inscription</a></li>
+
+								{% endif %}
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>		
+		</div>
+		<!-- end:fh5co-header -->
+		<div class="fh5co-hero">
+			<div class="fh5co-overlay"></div>
+			<div class="fh5co-cover" data-stellar-background-ratio="0.5" style="background-image: url({% static 'base/images/meghan-holmes.jpg' %});">
+				<div class="desc animate-box">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-7">
+								<h2><b>PREPARE
+
+									TO CHANGE
+									
+									FOR THE BETTER.</b></h2>
+								<p><span>Coaching a domicile <i class="icon-heart3"></i></span></p>
+								<span><a class="btn btn-primary" href="{% url 'signup' %}">S'inscrire maintenant</a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="fh5co-programs-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 ">
+						<div class="heading-section text-center animate-box">
+							<h2>QUI SOMMES-NOUS ?</h2>
+							<p>Hello, je m’appelle Nabil, à la base coach sportif à oxygéne en salle de sport, 
+								je suis finalement devenu coach sportif à domicile un peu partout à Tlemcen. 
+								Depuis le mois de mars 2020, la pandémie de Covid-19 m’a poussé à offrir un service 
+								supplémentaire à domicile de ceux qui voulaient rester en forme et en 
+								bonne santé grace a cette plateforme.
+								Il était évident pour moi d’aider par le sport et l’accompagnement personnalisé 
+								le plus grand nombre de personnes. Ce fût un énorme succès.
+								C’est d’ailleurs comme cela qu’est né HÉRACLÈS FIT  , 
+								la première équipe de coachs sportifs se déplaçant directement chez vous. 
+								Des coachs diplômés, expérimentés et autant passionnés que moi à aider les autres à se 
+								surpasser pour atteindre leurs objectifs personnels.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-md-4 col-sm-6">
+						<div class="program animate-box">
+							<img src="{% static 'base/images/group.svg' %}" alt="Login">
+							<h3>Ajouter vos clients</h3>
+							<p>Etape 1</p>
+							<!-- <span><a href="#" class="btn btn-default">Join Now</a></span> -->
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="program animate-box">
+							<img src="{% static 'base/images/checklist.svg' %}" alt="Plan">
+							<h3>Personnaliser vos scéances</h3>
+							<p>Etape 2</p>
+							<span><a href="{% url 'signup' %}" class="btn btn-default">Commencer</a></span>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="program animate-box">
+							<img src="{% static 'base/images/alarm.svg' %}" alt="Notify">
+							<h3>Notifier vos clients</h3>
+							<p>Etape 3</p>
+							<!-- <span><a href="#" class="btn btn-default">Join Now</a></span> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<div class="fh5co-parallax" style="background-image: url({% static 'base/images/bruce-mars.jpg' %});" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell box-area">
+							<div class="animate-box">
+								<h1>Partenaires</h1>
+								<p>Découvrer nos clubs partenaires</p>
+								<a href="salles" class="btn btn-primary">Consulter</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+          <br>
+		  <br>
+		
+		<div class="heading-section text-center animate-box">
+			<h2>Nos différents programmes</h2>
+		</div>
+<div class="containera">
+	<div class="itema" style="background-image: url({% static 'base/images/perte.webp' %});">
+	  <h2>Perte de poids</h2>
+	</div>
+	<div class="itema" style="background-image: url({% static 'base/images/zumba.webp' %});">
+	  <h2>Zumba</h2>
+	</div>
+	<div class="itema" style="background-image:  url({% static 'base/images/nutrition.jpg' %});">
+	  <h2>Conseil en nutrition</h2>
+	</div>
+	<div class="itema" style="background-image:  url({% static 'base/images/stretching.jpg' %});">
+	  <h2>Stretching</h2>
+	</div>
+	<div class="itema" style="background-image:  url({% static 'base/images/reprise.jpg' %});">
+	  <h2>Reprise du sport</h2>
+	</div>
+	<div class="itema" style="background-image:  url({% static 'base/images/remise.jpg' %});">
+	  <h2>Remise en forme</h2>
+	</div>
+  </div>
+
+  
+  
+		
+		
+		
+		<div id="fh5co-blog-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12">
+							<div class="heading-section animate-box">
+								<h2>Nos Coachs</h2>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="fh5co-blog animate-box">
+								<div class="inner-post">
+									<a href="#"><img class="img-responsive" src="{% static 'base/images/review4.jpg' %}" alt=""></a>
+								</div>
+								<div class="desc" style="padding-bottom: 2rem;">
+									<h3><a href=""#><b>Tayga Ali</b></a></h3>
+									<span class="posted_by">Coach depuis Décembre 2020</span>
+									<span class="comment"><i class="icon-heart3"></i></i></a></span>
+									<p style="color: black;">Cette application est si facile et contient tous les exercise dont j'ai besoin</p>
+									<!-- <a href="#" class="btn btn-default">Read More</a> -->
+								</div> 
+							</div>
+						</div>
+						
+						
+						<div class="col-md-12 ">
+							<div class="fh5co-blog animate-box">
+								<div class="inner-post">
+									<a href="#"><img class="img-responsive" src="{% static 'base/images/eddy.jpeg' %}" alt=""></a>
+								</div>
+								<div class="desc" style="padding-bottom: 1rem;">
+									<h3><a href=""#><b>Dali Brahim </b></a></h3>
+									<span class="posted_by">Coach pro depuis Novembre 2020</span>
+									<span class="comment"><i class="icon-heart3"></i></i></a></span>
+									<p style="color: black;">J'utilise ce site pour gérer mes clients car il est super pratique</p>
+									<!-- <a href="#" class="btn btn-default">Read More</a> -->
+								</div> 
+							</div>
+						</div>
+						
+						<div class="col-md-12 ">
+							<div class="fh5co-blog animate-box">
+								<div class="inner-post">
+									<a href="#"><img class="img-responsive" src="{% static 'base/images/review5.jpg' %}" alt=""></a>
+								</div>
+								<div class="desc">
+									<h3><a href=""#><b>Sorak Aya </b></a></h3>
+									<span class="posted_by">Coach en yoga depuis Juin 2018</span>
+									<span class="comment"><i class="icon-heart3"></i></i></a></span>
+									<p style="color: black;">Simple a utilisé mes clients adore</p>
+									<!-- <a href="#" class="btn btn-default">Read More</a> -->
+								</div> 
+							</div>
+						</div>
+						
+
+					</div>
+
+				</div>
+					
+
+				</div>
+			</div>
+		</div>
+		<!-- fh5co-blog-section -->
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 animate-box">
+							<h3 class="section-title">A propos</h3>
+							<p>application à faible coût conçue spécifiquement pour les coachs personnels afin de gérer les exercices de leurs clients. Avec une interface conviviale et une gamme de fonctionnalités, cette application simplifie le processus de création et de suivi des exercices</p>
+						</div>
+
+						<div class="col-md-4 animate-box">
+							<!-- <h3 class="section-title">Our Address</h3>
+							<ul class="contact-info">
+								<li><i class="icon-map-marker"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
+								<li><i class="icon-phone"></i>+ 1235 2355 98</li>
+								<li><i class="icon-envelope"></i><a href="#">info@yoursite.com</a></li>
+								<li><i class="icon-globe2"></i><a href="#">www.yoursite.com</a></li>
+							</ul> -->
+						</div>
+						<div class="col-md-4 animate-box">
+							<h3 class="section-title">Contacter nous</h3>
+							<form class="contact-form">
+								<div class="form-group">
+									<label for="name" class="sr-only">Nom</label>
+									<input type="name" class="form-control" id="name" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label for="email" class="sr-only">Email</label>
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+								<div class="form-group">
+									<label for="message" class="sr-only">Message</label>
+									<textarea class="form-control" id="message" rows="7" placeholder="Message"></textarea>
+								</div>
+								<div class="form-group">
+									<input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Envoyer">
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row copy-right">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<!-- <p class="fh5co-social-icons">
+								<a href="#"><i class="icon-twitter2"></i></a>
+								<a href="#"><i class="icon-facebook2"></i></a>
+								<a href="#"><i class="icon-instagram"></i></a>
+								<a href="#"><i class="icon-dribbble2"></i></a>
+								<a href="#"><i class="icon-youtube"></i></a>
+							</p> -->
+							<p>Copyright 2020  <a href="#">Uknown wolf</a>. All Rights Reserved. <br> Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+
+	</div>
+	<!-- END fh5co-page -->
+
+	</div>
+	<!-- END fh5co-wrapper -->
+
+	<!-- jQuery -->
+
+
+	<script src="{% static 'base/js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'base/js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'base/js/jquery.waypoints.min.js' %}"></script>
+	<!-- Stellar -->
+	<script src="{% static 'base/js/jquery.stellar.min.js' %}"></script>
+	<!-- Superfish -->
+	<script src="{% static 'base/js/hoverIntent.js' %}"></script>
+	<script src="{% static 'base/js/superfish.js' %}"></script>
+
+	<!-- Main JS (Do not remove) -->
+	<script src="{% static 'base/js/main.js' %}"></script>
+
+	</body>
+</html>
+

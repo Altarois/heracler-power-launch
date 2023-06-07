@@ -1,0 +1,34 @@
+.contain{
+    margin: 50px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containa{
+    margin: 50px;
+    width: 90%;
+    padding-inline : 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    -webkit-box-shadow: 0px 10px 34px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 34px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 34px 0px rgba(0,0,0,0.75);
+}
+
+.image{
+    width: 400px;
+    height: 375px;
+}
+
+.map{
+    width: 450px;
+    height: 300px;
+}
+
+.just{
+    color: #0ea5e9;
+}

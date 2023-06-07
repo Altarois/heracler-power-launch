@@ -1,0 +1,178 @@
+
+#flexIt
+{
+  display : flex ;
+  flex-wrap: wrap;
+  width : 90%;
+  margin: auto;
+  justify-content: center;
+  top: 5%;
+
+  
+}
+
+.title
+{
+	margin-top: 50px;
+	text-align: center;
+}
+
+ 
+
+ .linker{
+    color: black;
+	margin: 5px;
+	margin-left:5px;
+	transition: all ease-in 0.6s 
+}
+
+a:hover {
+  color: hotpink;
+}
+
+.linker:hover
+{
+	color:white;
+	background-color: white;
+	size: 30px;
+}
+
+a.nav-link:hover {color:#F00F00; text-decoration:none;}
+
+.navbar > li > a:hover, .navbar > li > a:focus {
+  background-color: #EF92A5;
+  text-decoration: none;
+}
+
+#exercise
+{
+  width:28%;
+  height: 550px;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  display :column;
+  margin: 10px;
+  padding:10px;
+  
+  background-color: #e6e6ff;
+  overflow: auto;
+  min-width:370px;
+}
+
+
+@media screen and (max-width: 500px) {
+  #exercise {
+    display: block;
+	width:90%;
+  }
+}
+
+
+
+
+#exercise>h2
+{
+  text-align: center;
+  color:#2e382e;
+}
+
+.card
+{
+  margin-top:5px;
+  margin-bottom:10px;
+  background-color:#f2f2f2;
+  text-align: center;
+  
+}
+
+.flip > .card
+{
+  cursor:pointer;
+  transition : all ease-out 0.8s;
+}
+
+.flip > .card:hover
+{
+  background-color: black;
+  color: white;
+  
+}
+
+.flip > .card:hover .rotate
+{
+  color: white;
+}
+
+input, label
+{
+  margin-top:14px;
+  text-align: center;
+}
+
+.separator
+{
+  border-top: 1px solid #f2f2f2;
+  
+}
+
+
+
+
+img
+{
+  cursor: pointer;
+}
+
+
+.show{
+  width: 80%;
+  margin : auto;
+  
+}
+
+.show>.card
+{
+  text-align: left;
+  cursor: pointer;
+}
+
+.close
+{
+  color: blue;
+  transition : all ease-out 0.8s;
+}
+
+button
+{
+  padding : 2px;
+}
+
+
+.close
+{
+  transform: rotate(0deg);
+  transition: transform 1s linear;
+}
+
+.close.open
+{
+  transform: rotate(180deg);
+  transition: transform 1s linear;
+}
+
+.rotate {
+    -moz-transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    transition: all .5s linear;
+}
+.rotate.down {
+    -moz-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    transform:rotate(90deg);
+}
+
+
+#taskList > .card
+{
+	cursor: pointer;
+}

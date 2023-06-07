@@ -1,0 +1,218 @@
+#contain
+{
+  margin:auto;
+  width:80%;
+  padding:auto;
+  text-align : center;
+}
+
+.containIn
+{
+   margin:auto;
+  width:80%;
+  padding:auto;
+  display : flex;
+  justify-content:center;
+}
+
+.element
+{
+  margin:40px;
+
+}
+
+
+
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background: #348ef6;
+    font-family: 'Roboto';
+    font-size: 16px;
+}
+*/
+#contain
+{
+  margin:auto;
+  width:80%;
+  padding:auto;
+  text-align : center;
+}
+
+.containIn
+{
+   margin:auto;
+  width:80%;
+  padding:auto;
+  display : flex;
+  justify-content:space-between;
+}
+
+.element
+{
+  margin:10px;
+}
+
+#flexclients
+{
+  width:65%;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  margin-top: 20px;
+  
+}
+
+.itemOne
+{
+  
+  background-image: url("https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256__340.png"); /* The image used */
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height:210px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  width:20%;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all ease 0.8s;
+  
+}
+
+.itemOne:hover
+{
+  margin-right:20px;
+  padding:30px;
+  
+}
+
+.itemThree
+{
+  width:20%;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all ease 0.8s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height:200px;
+  background-color: #000000;
+background-color: #2d3436;
+background-image: linear-gradient(315deg, #348ed1 0%, #2d3436 74%);
+  margin-left:20px;
+  text-align: center;
+  border-radius: 5px;
+  
+}
+
+.itemThree > span
+{
+  margin:10px;
+}
+
+.itemThree:hover
+{
+  margin-right:20px;
+  padding:30px;
+  width:30%;
+  opacity:0.85;
+  border-radius: 15px;
+  
+}
+
+.itemTwo
+{
+  flex-grow: 3;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height:300px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   box-sizing: border-box;
+  background-color:white;
+  border-radius: 15px;
+}
+
+.des
+{
+  background-color:#348ed1;
+  display:inline-block;
+  width:30%;
+  height:100px;
+  margin:auto;
+  text-align:center;
+  padding:20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 5px 13px 8px;
+  
+}
+
+.content
+{
+  text-align:center;
+  display:inline-block;
+  
+  width:60%;
+}
+
+hr.dash
+{
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+  .containIn
+{
+   margin:auto;
+  width:80%;
+  padding:auto;
+  display : column;
+  flex-wrap: wrap;
+  justify-content:center;
+  height: 100%;
+  font-size:12px;
+
+}
+
+.element
+{
+  margin:0px;
+  color: black;
+
+}
+
+
+.itemThree
+{
+  width:80%;
+  
+  
+}
+
+
+#flexclients
+{
+  width:100%;
+  margin:auto;
+  display:column;
+  flex-wrap: wrap; 
+  justify-content:center;
+  margin-top: 20px;
+  
+}
+
+hr.dash
+{
+  border-top: 2px solid blue;
+}
+
+
+
+
+}

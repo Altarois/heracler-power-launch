@@ -1,0 +1,118 @@
+
+
+
+{% block content %}
+
+
+<div class="mx-auto">
+  <div class="desc animate-box" >
+    <div style=""></div>
+       <div class="container">
+
+                            
+             <div class="col-md-4 col-sm-6 animate-box"> 
+                {{request.user.username}}
+             <h3 class="section-title">Add Exercise</h3>                 
+
+    <form class="submit-form" method="post" id="TaskForm" data-url="{% url 'exo' %}">
+        {% csrf_token %}
+        <div class="form-group">
+        
+        <div style="margin-bottom: 2rem;"></div>
+        
+
+            <input class="form-group" name="search" label="Search" type="text"  >
+        
+        
+        
+        <div style="margin-bottom: 2rem;"></div>
+        <button type="button" class="btn btn-outline-success" id="addExercise" onclick="">Confirm</button>
+        </div>
+    </form>
+
+<div id="taskList">
+{% for task in tasks%}
+<div class="card mt-2 opens" id="taskCard" data-id="{{ task.id }}">
+    <div class="card-body" data-id="{{ task.id }}">
+        {{task.name}}
+        {{tasks.completed}}
+        <button type="button" class="close float-right" data-id="{{task.id}}" >
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+{% endfor %}
+</div>
+<div style="margin-bottom: 4rem;">
+    </div>
+        </div>
+            </div>
+             </div>
+         </div>
+
+{% endblock %}
+
+
+
+{% comment %}
+
+<!--<div class="grid">
+<p>Upper Body</p>
+{% for up in UpperBody %}
+        <figure>
+        
+        <img  src="{{up.picture.url}}" alt="{{ up.name }}"  height="200" width="200"> 
+
+        <figcaption> {{up.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>
+
+
+<div class="grid">
+</br>
+<p>Lower Body</p>
+{% for low in LowerBody %}
+        <figure>
+        
+        <img  src="{{low.picture.url}}" alt="{{ low.name }}"  height="200" width="200"> 
+
+        <figcaption> {{low.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>
+
+
+</br>
+
+<div class="grid">
+<p>LIIT (yoga)</p>
+{% for lit in LIIT %}
+        <figure>
+        
+        <img  src="{{lit.picture.url}}" alt="{{ lit.name }}"  height="200" width="200"> 
+
+        <figcaption> {{lit.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>
+
+</br>
+<div class="grid">
+<p>FIIT (cardio)</p>
+{% for fit in FIIT %}
+        <figure>
+        
+        <img  src="{{fit.picture.url}}" alt="{{ fit.name }}"  height="200" width="200"> 
+
+        <figcaption> {{fit.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>-->
+{% endcomment %}
+
+

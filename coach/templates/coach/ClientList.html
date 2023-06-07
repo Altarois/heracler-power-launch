@@ -1,0 +1,181 @@
+{% block content %}
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Session</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {% for session in Csession %}
+
+			
+			 <a href="/coach/addsession/{{session.id}}"><div class="activation" data-id="{{ session.id }}" data-url="{% url 'addclient' %}"><span class="badge badge-info">{{session.name}} + </span></div><a>
+			
+
+		{% endfor %}
+		</br></br>
+		<h5>  Session Assigné </h5>
+
+		<div id="assigned" class="assigned">
+			
+		</div>
+
+
+
+		<div id="alert-container">
+
+		</br></br>
+			<div class="alert alert-warning alert-dismissible fade show">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Session deja assigné!</strong> Cette session est suivie par le client.
+  </div>
+
+		</div>
+		
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Sauvegarder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--client container -->
+
+<div class="contain" id="clientList">
+
+<i class="fa fa-users fa-5x"></i>
+<h2>Clients</h2>
+
+</div>
+
+<div class="container" style="border:1px solid #cecece; padding:30px; margin-top:30px; background-color: #f2f2f2;" id="cliList">
+   
+<div class="list-group list-group-mine">
+  
+<ul class="list-group list-group-horizontal">
+  <li class="list-group-item list-group-item-dark">Nom</li><li class="list-group-item list-group-item-dark">Email</li><li class="list-group-item list-group-item-dark">Rejoins</li>
+  <li class="list-group-item list-group-item-dark">Statut</li>
+  <li class="list-group-item list-group-item-dark">Code</li>
+  <li class="list-group-item list-group-item-dark">Ajouter exercises</li>
+
+  
+</ul>
+  </div>
+
+
+
+{% for client in clients %}
+
+
+{% if client.is_active %}
+<div class="list-group list-group-me" id="ulti">
+  <ul class="list-group list-group-horizontal" id="Glist">
+   <li class="list-group-item">{{ client.name }}</li> 
+   <li class="list-group-item">{{ client.email }}</li>
+   <li class="list-group-item">{{ client.created_at | date:" M Y" }}</li>
+   <li class="list-group-item list-group-item-success">Active</li>
+   <li class="list-group-item">Utilisé</li> 
+   <li class="list-group-item"><div class="btn-group">
+      
+	   <button type="button" class="btn btn-primary AddSession" data-toggle="modal" data-target="#exampleModal" id="AddSession"
+	   data-id="{{ client.id }}" data-url = {% url 'addclient' %}>
+  Ajouter
+</button>
+      <a href="/coach/manage/{{ client.name }}" type="button" class="btn btn-primary" data-id="{{ client.id }}" >Voir</a>
+    </div>
+      </li>
+  </ul>
+</div>
+
+<hr class="dash">
+
+ {% elif not client.is_active %}
+ <div class="list-group list-group-me" id="Glist">
+  <ul class="list-group list-group-horizontal">
+   <li class="list-group-item">{{ client.name }}</li> 
+   <li class="list-group-item">{{ client.email }}</li>
+   <li class="list-group-item">{{ client.created_at | date:" M Y" }}</li>
+   <li class="list-group-item list-group-item-warning">Inactive</li>
+   <li class="list-group-item">
+   <div class="btn-group">
+
+	<button type="button" class="btn btn-info showed" data-toggle="modal" data-target="#codeModal" data-id="{{ client.id }}" data-url = {% url 'addclient' %}>
+			Voir
+	</button>
+	</div>
+	</li> 
+
+  <li class="list-group-item"><div class="btn-group"> <button type="button" class="btn btn-outline-info">Inactif</button> </div></li>
+  </ul>
+</div>
+
+<hr class="dash">
+
+<!-- Modal -->
+<div class="modal fade" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="codeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">  Personnal Code</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="tokenBody">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-primary">Sauvegarder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}   
+
+
+
+
+
+{% endfor %}
+        
+
+
+</div>
+ 
+
+<script type="text/javascript">
+  
+  $(window).on('resize load', function() {
+  if ($(window).width() <= 600) { 
+
+
+      var size = $('.list-group-horizontal').size();
+      console.log(size)
+
+    $('.list-group-horizontal').removeClass("list-group-horizontal"); 
+
+  }
+  else {
+
+     $('ul').addClass("list-group-horizontal"); 
+   
+  }
+});
+
+</script>
+
+{% endblock %}

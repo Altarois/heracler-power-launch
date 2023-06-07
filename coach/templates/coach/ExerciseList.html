@@ -1,0 +1,98 @@
+{% block content %}
+
+
+       
+ <div class="title">
+   <h3 class="mt-4"> {{Sessions.name}} </h3>
+    </div>           
+                            
+              
+            
+<div id="flexIt">
+  
+  
+
+{% for category in categories %}
+
+
+
+<div id="exercise" class="overflow-auto">
+
+	 <h3> {{ category.name }} </h3>
+ <hr>
+
+	{% for exercise in category.exercise_set.all %}
+
+	 <div class="flip">
+  <div class="card mt-2">
+    <div class="card-body" >
+        
+      <strong> {{ exercise.name }}</strong>
+        <button type="button" class="close float-right rotate" >
+            <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+        </button> 
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="panel">
+        <div class="card mt-2">
+    <div class="card-body" >
+         
+		 <form class="submit-form Eform" method="post" id="ExerciseForm" data-url="{% url 'addsession' session_id=session.id %}" >
+        
+		{% csrf_token %}
+
+      <div class="form-group">
+        <input name="name" class="form-control" type="text" placeholder="{{ exercise.name }}" readonly>
+
+		<input name="exename" class="form-control" type="text" placeholder="{{ exercise.name }}" value="{{ exercise.name}}" hidden>
+
+		
+
+		 <div class="form-group">
+         <label for="description" class="sr-only">Description</label>
+          {{ form.description }}
+          </div>
+
+		  <div class="form-group">
+		  <label for="set">Number of Repetition</label>
+         <label for="description" class="sr-only">Description</label>
+          {{ form.set }}
+          </div>
+
+		  <div class="form-group">
+
+		  <label for="rest_time">Rest Time</label>
+         <label for="description" class="sr-only">Description</label>
+          {{ form.rest_time }}
+          </div>
+		  <button type="button" class="btn btn-outline-info mt-2 submit" id="addExo" onclick="" data-id="{{exercise.id}}">AddExercise</button>
+        
+		
+
+           </div> </div>
+      
+    </form>
+          <div></div></div></div>
+    
+
+
+
+    <hr>
+	{% endfor %}
+
+</div>
+
+{% endfor %}
+        
+</div>
+
+ <div style="margin-bottom: 4rem;">
+    </div>
+ 
+
+
+{% endblock %}
+

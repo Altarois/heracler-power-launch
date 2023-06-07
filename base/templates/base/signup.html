@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Fitness &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <meta property="og:title" content=""/>
+        <meta property="og:image" content=""/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content=""/>
+        <meta property="og:description" content=""/>
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="" />
+        <meta name="twitter:url" content="" />
+        <meta name="twitter:card" content="" />
+    
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico">
+    
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900' rel='stylesheet' type='text/css'>
+        
+    {% load static %}
+
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="{% static 'base/css/animate.css' %}">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="{% static 'base/css/icomoon.css' %}">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.css' %}">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="{% static 'base/css/superfish.css' %}">
+
+    <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
+
+    <link rel="stylesheet" href="/static/base/css/evolve.css">
+
+
+    <!-- Modernizr JS -->
+    <script src="{% static 'base/js/modernizr-2.6.2.min.js' %}"></script>
+
+        <!-- FOR IE9 below -->
+        <!--[if lt IE 9]>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    
+        </head>
+</head>
+<body>
+    <div id="fh5co-wrapper">
+		<div id="fh5co-page">
+		<div id="fh5co-header">
+			<header id="fh5co-header-section">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+						<h1 id="fh5co-logo"><a href="{% url 'index' %}">Heracles<span> Power</span></a></h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li>
+									<a href="{% url 'index' %}">Acceuil</a>
+								</li>
+								<!-- <li><a href="trainer.html">About Us</a></li> -->
+								<li><a href="{% url 'login' %}">Connection</a></li>
+								<li class="active"><a href="{% url 'signup' %}">Inscription</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>		
+		</div>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 animate-box">
+                   
+
+              
+ 
+                       <h3 class="section-title" style="padding-top: 22rem;">Inscription</h3>
+                    <form class="contact-form" method="POST">
+                        
+                        {% csrf_token %}
+                        
+                        {{form.errors}}
+
+                        <div class="form-group">
+                            <label for="name" class="sr-only">Nom</label>
+                            {{form.username}}
+                           <!--- <input type="name" class="form-control" placeholder="username">-->
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="sr-only">Email</label>
+                            {{form.email}}
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="sr-only">Mot de passe</label>
+                            {{form.password1}}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="sr-only">Mot de passe Confirmation</label>
+                            {{form.password2}}
+                        </div>
+
+						<div class="form-group">
+                            <label for="groups" class="sr-only">Vous êtes ?</label>
+                            {{form.groups}}
+                        </div>
+
+                        <div class="form-group">
+                           <input type="submit" id="btn-submit" class="btn btn-send-message btn-md" value="Inscription"> 
+                        </div>
+                    </form>
+                    <p>Vous êtes déjà inscrit ?  <a href="{% url 'login' %}">Connexion</a></p>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<script src="{% static 'base/js/jquery.min.js' %}"></script>
+    <!-- jQuery Easing -->
+    <script src="{% static 'base/js/jquery.easing.1.3.js' %}"></script>
+    <!-- Bootstrap -->
+    <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+    <!-- Waypoints -->
+    <script src="{% static 'base/js/jquery.waypoints.min.js' %}"></script>
+    <!-- Stellar -->
+    <script src="{% static 'base/js/jquery.stellar.min.js' %}"></script>
+    <!-- Superfish -->
+    <script src="{% static 'base/js/hoverIntent.js' %}"></script>
+    <script src="{% static 'base/js/superfish.js' %}"></script>
+
+    <!-- Main JS (Do not remove) -->
+    <script src="{% static 'base/js/main.js' %}"></script>
+
+    <!-- script for place holder -->
+    <script >
+        
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder='username';
+        form_fields[2].placeholder='email';
+        form_fields[3].placeholder='password';
+        form_fields[4].placeholder= 'Password Confirmation'
+
+        for (var field in form_fields)
+        {
+            form_fields[field].className +="form-control"
+        }
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+.list-group-item
+{
+  width:30%;
+  display : inline-block;
+  height: 5%;
+  margin-top : 10px;
+  font-size: 15px;
+  
+}
+
+.list-group-item list-group-item-dark
+{
+  color:white; !important
+}
+
+.contain
+{
+  text-align: center;
+    height:auto;
+  margin:0px;
+  color: green;
+    
+}
+
+.list-group list-group-me > i
+{
+  position:relative;
+  top: calc(50% - 10px);
+  margin-bottom : 20px;
+  cursor: pointer; 
+
+}
+
+.list-group-mine .list-group-item {
+  background-color:  #4b4b4e;
+  //border-top: 0px solid #66ffff;
+  border-left-color: #fff;
+  border-right-color: #fff;
+  width:28%;
+  color: white;
+  transition : all 0.75s ease-out;
+}
+
+
+.list-group-mine .list-group-item:hover   {
+  background-color: #80ff80;
+  width: 32%;
+  //font-size: 10px;
+  cursor: pointer;
+}
+
+
+.list-group-me .list-group-item >li {
+  
+  //border-top: 0px solid #66ffff;
+  border-left: 1px solid #66ffff ;
+  font-size: 10px;
+  
+  transition : all 0.75s ease-out;
+}
+
+.list-group-me > li {
+  
+ 
+  font-size: 10px;
+  
+  transition : all 0.75s ease-out;
+}
+
+i
+{
+	margin-top:25px;
+}
+
+button
+{
+ 
+  
+}
+
+.modal-open{overflow:auto;padding-right:0 !important;}
+
+body {
+  padding-right:0 !important;
+}
+
+.modal-open {
+  overflow:auto;
+  padding-right:0 !important;
+}
+
+.activation
+{
+	cursor:pointer;
+	display: inline;
+}
+
+
+@media only screen and (max-width: 700px) {
+
+
+ .list-group-item
+{
+  width:300px;
+  margin: auto;
+  display : inline-block;
+  height: 5%;
+  margin-top : 10px;
+  font-size: 15px;
+  
+}
+
+.list-group-mine .list-group-item {
+  
+  width:0px;
+  height: 0px;
+  display: none;
+  transition : all 0.75s ease-out;
+}
+
+.list-group-item
+{
+  display: column;
+  width: 400px;
+  
+}
+
+.contain
+{
+  width:400px;
+    
+}
+
+.list-group-item
+{
+  width: 300px;
+}
+
+
+
+
+}

@@ -1,0 +1,87 @@
+
+{{request.user.username}}
+
+<div class="boxer">
+ <div class="containers">
+
+{% for exercise in exercises %}
+<div class="wrapper">
+ 
+    
+  <img src="{{exercise.picture.url}}" height="200px">
+    <div class="overlay">
+        <div class="content">
+            <a > add exercise</a>
+        </div>
+    </div>
+  <p class="title">{{exercise.name}}</p>
+   
+</div>
+ {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+<!--<div class="grid">
+<p>Upper Body</p>
+{% for up in UpperBody %}
+        <figure>
+        
+        <img  src="{{up.picture.url}}" alt="{{ up.name }}"  height="200" width="200"> 
+
+        <figcaption> {{up.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>
+
+
+<div class="grid">
+</br>
+<p>Lower Body</p>
+{% for low in LowerBody %}
+        <figure>
+        
+        <img  src="{{low.picture.url}}" alt="{{ low.name }}"  height="200" width="200"> 
+
+        <figcaption> {{low.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>
+
+
+</br>
+
+<div class="grid">
+<p>LIIT (yoga)</p>
+{% for lit in LIIT %}
+        <figure>
+        
+        <img  src="{{lit.picture.url}}" alt="{{ lit.name }}"  height="200" width="200"> 
+
+        <figcaption> {{lit.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>
+
+</br>
+<div class="grid">
+<p>FIIT (cardio)</p>
+{% for fit in FIIT %}
+        <figure>
+        
+        <img  src="{{fit.picture.url}}" alt="{{ fit.name }}"  height="200" width="200"> 
+
+        <figcaption> {{fit.name}} </figcaption>
+
+    </figure>
+{% endfor %}
+</div>-->
+
+
+
