@@ -2,6 +2,7 @@ from tempfile import template
 from django.core.serializers import serialize
 import datetime
 
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
@@ -22,6 +23,7 @@ from django.forms.models import model_to_dict
 from .forms import ExerciseForm, SessionForm, SessionUpdate
 
 from client.forms import ClientForm
+from client.models import stats
 
 
 # render the index.html and return in HttpReponse()
@@ -433,12 +435,6 @@ class show_session(View):
 
 def attribute_session(request , name):
 
-
-
-    #form for session update
-
-
-
     form = SessionUpdate()
     #clients = client.objects.filter(affiliation=request.user)
     sessions = session.objects.filter(coach=request.user)
@@ -453,8 +449,9 @@ def attribute_session(request , name):
     except client.DoesNotExist:
         raise Http404("This client dont exist.")
 
-
+    user = User.objects.get(username=name)
     check_client = client.objects.filter(affiliation= request.user)
+    stat = stats.objects.get(link=user.id) 
 
 
 
@@ -510,12 +507,7 @@ def attribute_session(request , name):
         #return JsonResponse({'session': model_to_dict(current_session)}, status=200)
 
 
-
-
-
-
-
-    context = {'sessions': sessions, 'form':form, 'client_session': client_session , 'Notsession': client_Notsession ,'client': user_client }
+    context = {'sessions': sessions, 'form':form, 'client_session': client_session , 'Notsession': client_Notsession ,'client': user_client, 'stat': stat }
 
 
     return render(request, 'coach/ManageClient.html', context=context)

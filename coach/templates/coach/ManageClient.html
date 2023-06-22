@@ -99,6 +99,15 @@
  <textarea value="{{ session.detail}}" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" name="detail">{{ session.detail }}</textarea>
 </div>
 
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text" name="name">Commentaire du client</span>
+  </div>
+ <textarea style="background-color: black;color:green;" disabled value="{{stat.comment}}" class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" name="detail">{{ session.detail }}</textarea>
+</div>
+
+
+
  <input value="{{ session.id }}" type="number" class="form-control" name="id"  hidden>
 
 <button style="text-align: center;" type="submit" class="btn btn-primary triger" data-id="{{ client.id }}" data-url="{% url 'manage' name=client.name %}" >Mettre à jour</button>

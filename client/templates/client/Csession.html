@@ -97,6 +97,7 @@
 {% block content %}
 
 
+
 {% for task in tasks %}
 
 <h1 style="text-align: center;"><span class="badge badge-secondary core">Exercise</span></h1>
@@ -153,6 +154,38 @@
 			Finir la scéance
 	</a>
 
+<!-- Button to trigger the modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Ajouter un commentaire
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Envoyer un commentaire au Coach</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <form method="POST" action="{% url 'comment_submit' %}">
+                  {% csrf_token %}
+                  <div class="form-group">
+                      <label for="message-text" class="col-form-label">Message:</label>
+                      <textarea class="form-control" name="comment" id="message-text"></textarea>
+                  </div>
+                  <input type="hidden" name="session" value="{{ session.id }}">
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                      <input type="submit" class="btn btn-primary" value="Envoyer">
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
 
 {% comment %}
 <button type="button" class="btn btn-info showed" data-toggle="modal" data-target="#codeModal" >

@@ -48,6 +48,7 @@ class session(models.Model):
     detail = models.CharField(max_length=256)
     timing = models.DateTimeField(null=True, blank=True)
     estimation = models.IntegerField(null=True , blank=True)
+    comment = models.TextField(max_length=5000, default='')
 
 
     def __str__(self):

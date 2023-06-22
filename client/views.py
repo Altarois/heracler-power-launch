@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404
 from django.template import loader
 from .forms import ClientForm, CodeForm
-from .models import client
+from .models import client, stats
 from coach.models import session, coach , task, exercise
 from base.decorators import only_client
 from django.contrib.auth.decorators import login_required
@@ -98,10 +98,35 @@ def clients_session(request, session_id):
 
     if current_session in user_session :
         tasks = task.objects.filter(session=session_id)
-
-        context = {'tasks' : tasks}
+        context = {'tasks' : tasks, 'session' : current_session}
 
     else:
         raise PermissionDenied
 
     return render(request, 'client/Csession.html', context= context)
+
+@login_required
+def comment_submit(request):
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment')
+        id = request.POST.get('session')
+        print(id, comment_text)
+        sess = session.objects.get(id=id)
+        
+
+        # Get the current user and session
+        user = request.user
+
+        # Create the comment
+        comment = stats.objects.create(link=user,session_confirmed=sess, comment=comment_text)
+        comment.save()
+
+        # Pass the session object to the template
+        context = {
+            'session': session
+        }
+
+        # Redirect the user to a relevant page
+        return HttpResponseRedirect('/sessions/',sess.id, context)  # Replace '/dashboard' with your desired URL
+
+
